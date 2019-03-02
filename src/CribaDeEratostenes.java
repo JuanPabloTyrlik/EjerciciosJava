@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class CribaDeEratostenes {
 
-    public static LinkedList <Integer> primeNumbers (int n){
+    public LinkedList <Integer> primeNumbers (int n){
        LinkedList <Integer> list = new LinkedList<>();
        for (int i=2; i<=n; i++) {
            list.add(i);
