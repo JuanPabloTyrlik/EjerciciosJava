@@ -19,7 +19,8 @@ public class Main {
 
         int n = 20;
         CribaDeEratostenes criba = new CribaDeEratostenes();
-        System.out.printf("\nNumeros primos entre 2 y %s: " + criba.primeNumbers(n), n);
+        System.out.printf("\nNumeros primos entre 2 y %s: " + criba.primeNumbers(n) + "\n", n);
 
+        System.out.println("\n" + ASCII.stringToASCII("juan"));
     }
 }
