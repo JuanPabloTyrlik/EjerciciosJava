@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,5 +23,11 @@ public class Main {
         System.out.printf("\nNumeros primos entre 2 y %s: " + criba.primeNumbers(n) + "\n", n);
 
         System.out.println("\n" + ASCII.stringToASCII("juan"));
+
+        System.out.println(Password.verify("a"));
+        System.out.println(Password.verify("a123_/"));
+        System.out.println(Password.verify("abc123_"));
+        System.out.println(Password.verify("abc12345678_"));
+        System.out.println(Password.verify("abc 123_"));
     }
 }
