@@ -20,8 +20,13 @@ public class Password {
         // At least one number: /d+
         // At least one special character: [\x21-\x2F\x3A-\x40\x5B-\x60\x7B-\x7E]+
         // Does not contain spaces: /s{0}
-        //String regex = "([a-zA-Z]*\d+\s{0}[\\x21-\\x2F\\x3A-\\x40\\x5B-\\x60\\x7B-\\x7E]+){5,10}";
-        String regex = "([[a-zA-Z]*\\d+\\s{0}[\\x21-\\x2F\\x3A-\\x40\\x5B-\\x60\\x7B-\\x7E]+]{5,10})"; //Modify order
+        //String regex = "([[a-zA-Z]*\\d+\\s{0}[\\x21-\\x2F\\x3A-\\x40\\x5B-\\x60\\x7B-\\x7E]+]{5,10})";
+        String regex =  "^" +
+                        "(?=.*{5,10}$)" +
+                        "(?=.*[0-9]+)" +
+                        "(?=.*[\\x21-\\x2F\\x3A-\\x40\\x5B-\\x60\\x7B-\\x7E]+)" +
+                        "((?!\\s).)*$" +
+                        ".*$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(s);
         return matcher.find();
