@@ -60,4 +60,21 @@ public class Numbers {
             recursive(++a, b);
         }
     }
+
+    public static boolean isAcronym(String a, String b)
+        {
+            if (a.length() != b.length())
+                {return false;}
+            else
+                {
+                    for (int i = 1; i < b.length(); i++)
+                        {
+                            if (a.indexOf(b.charAt(i)) == -1)
+                                {
+                                    return false;
+                                }
+                        }
+                    return true;
+                }
+        }
 }
