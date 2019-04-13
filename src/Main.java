@@ -1,6 +1,9 @@
+import java.sql.Array;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,11 +40,18 @@ public class Main {
         System.out.println(cb.simpleSymbols("+b+c+d+"));
         System.out.println(cb.simpleSymbols("+b+c+d"));
 */
-        System.out.println(Vowels.getCount("hola todo bien?"));
+/*        System.out.println(Vowels.getCount("hola todo bien?"));
 
         System.out.println(Kata.getMiddle("testing"));
         System.out.println(Kata.getMiddle("abcd"));
 
+        Integer[] binary = {1,1,1,1};
+        System.out.println(Kata.ConvertBinaryArrayToInt(binary));
+
+        System.out.println(Kata.disemvowel("What are you, a communist?"));
+*/
+        System.out.println(Kata.spinWords("Welcome"));
+        System.out.println(Arrays.toString(Kata.dirReduc(new String[]{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"})));
 
 
     }
