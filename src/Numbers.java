@@ -50,7 +50,8 @@ public class Numbers {
     public void swapRecursive(int a, int b) {
         this.a = a;
         this.b = b;
-        if (a > b) swap(a, b);
+        if (a > b)
+            swap(a, b);
         recursive(this.a, this.b);
     }
 
@@ -61,20 +62,16 @@ public class Numbers {
         }
     }
 
-    public static boolean isAcronym(String a, String b)
-        {
-            if (a.length() != b.length())
-                {return false;}
-            else
-                {
-                    for (int i = 1; i < b.length(); i++)
-                        {
-                            if (a.indexOf(b.charAt(i)) == -1)
-                                {
-                                    return false;
-                                }
-                        }
-                    return true;
+    public static boolean isAcronym(String a, String b) {
+        if (a.length() != b.length()) {
+            return false;
+        } else {
+            for (int i = 1; i < b.length(); i++) {
+                if (a.indexOf(b.charAt(i)) == -1) {
+                    return false;
                 }
+            }
+            return true;
         }
+    }
 }
