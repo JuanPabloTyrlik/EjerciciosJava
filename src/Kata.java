@@ -66,43 +66,96 @@ class Kata {
     }
 
     public static String[] dirReduc(String[] arr) {
-        ArrayList<String> list = new ArrayList<>();
-        for (String s : arr) {
-            switch (s) {
+//        ArrayList<String> list = new ArrayList<>();
+//        for (String s : arr) {
+//            switch (s) {
+//                case "NORTH":
+//                    if (list.contains("SOUTH")) {
+//                        list.remove("SOUTH");
+//                    } else {
+//                        list.add(s);
+//                    }
+//                    break;
+//                case "SOUTH":
+//                    if (list.contains("NORTH")) {
+//                        list.remove("NORTH");
+//                    } else {
+//                        list.add(s);
+//                    }
+//                    break;
+//                case "EAST":
+//                    if (list.contains("WEST")) {
+//                        list.remove("WEST");
+//                    } else {
+//                        list.add(s);
+//                    }
+//                    break;
+//                case "WEST":
+//                    if (list.contains("EAST")) {
+//                        list.remove("EAST");
+//                    } else {
+//                        list.add(s);
+//                    }
+//                    break;
+//            }
+//        }
+//        String[] directions = new String[list.size()];
+//        for (int i = 0; i < list.size(); i++) {
+//            directions[i] = list.get(i);
+//        }
+//        return directions;
+//    }
+    ArrayList<String> list = new ArrayList<>();
+    int counter =0;
+        for (int i = 0; i < arr.length; i++) {
+        list.add(arr[i]);
+    }
+        do { counter = 0;
+        for (int i = 0; i < list.size(); ++i) {
+            switch (list.get(i)) {
                 case "NORTH":
-                    if (list.contains("SOUTH")) {
-                        list.remove("SOUTH");
-                    } else {
-                        list.add(s);
-                    }
-                    break;
+                    try {
+                        if (list.get(i+1) == "SOUTH") {
+                            list.remove(i+1);
+                            list.remove(i);
+                            counter++;
+                        }
+                        break;
+                    } catch (Exception e) {break;}
                 case "SOUTH":
-                    if (list.contains("NORTH")) {
-                        list.remove("NORTH");
-                    } else {
-                        list.add(s);
-                    }
-                    break;
+                    try {
+                        if (list.get(i+1) == "NORTH") {
+                            list.remove(i+1);
+                            list.remove(i);
+                            counter++;
+                        }
+                        break;
+                    } catch (Exception e) {break;}
                 case "EAST":
-                    if (list.contains("WEST")) {
-                        list.remove("WEST");
-                    } else {
-                        list.add(s);
-                    }
-                    break;
+                    try {
+                        if (list.get(i+1) == "WEST") {
+                            list.remove(i+1);
+                            list.remove(i);
+                            counter++;
+                        }
+                        break;
+                    } catch (Exception e) {break;}
                 case "WEST":
-                    if (list.contains("EAST")) {
-                        list.remove("EAST");
-                    } else {
-                        list.add(s);
-                    }
-                    break;
+                    try {
+                        if (list.get(i+1) == "EAST") {
+                            list.remove(i+1);
+                            list.remove(i);
+                            counter++;
+                        }
+                        break;
+                    } catch (Exception e) {break;}
             }
         }
-        String[] directions = new String[list.size()];
+    } while (counter > 0);
+    String[] directions = new String[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            directions[i] = list.get(i);
-        }
+        directions[i] = list.get(i);
+    }
         return directions;
     }
 }
