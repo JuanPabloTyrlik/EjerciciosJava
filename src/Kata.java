@@ -158,4 +158,26 @@ class Kata {
     }
         return directions;
     }
+
+    public static int bouncingBall(double h, double bounce, double window) {
+        if (!(h>0 && window < h && (bounce > 0 && bounce < 1))) {
+            return -1;
+        }
+        return calculateBounce(h,bounce,window,0);
+    }
+
+    public static int calculateBounce (double h, double bounce, double window, int views) {
+        if (h>0 && window < h && (bounce > 0 && bounce < 1)) {
+            if (h>window) {
+                if (h*bounce > window) {
+                    views += 2+calculateBounce(h*bounce,bounce,window,views);
+                } else {
+                    views += 1 + calculateBounce(h * bounce, bounce, window, views);
+                }
+            } else {
+                return views;
+            }
+        }
+        return views;
+    }
 }

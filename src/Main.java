@@ -54,6 +54,8 @@ public class Main {
         System.out.println(Arrays.toString(Kata.dirReduc(new String[]{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"})));
         System.out.println(Arrays.toString(Kata.dirReduc(new String[]{"EAST", "EAST", "WEST", "NORTH", "WEST", "EAST", "EAST", "SOUTH", "NORTH", "WEST"})));
 
+        System.out.println(Kata.bouncingBall(3,0.66,1.5));
+        System.out.println(Kata.bouncingBall(30,0.66,1.5));
 
     }
 }
