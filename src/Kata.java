@@ -158,4 +158,6 @@ class Kata {
     }
         return directions;
     }
+
+
 }
