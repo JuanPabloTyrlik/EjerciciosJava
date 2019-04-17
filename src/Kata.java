@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 class Kata {
@@ -179,6 +180,40 @@ class Kata {
             }
         }
         return views;
+    }
+
+    public static double[] fibonacci(double[] s, int n) {
+        double[] list = new double[n];
+        for (int i = 0; i < s.length; i++) {
+            list[i] = s[i];
+        }
+        for (int i=2; i<n; i++) {
+            list[i]=list[i-1]+list[i-2];
+        }
+        return list;
+    }
+
+    public static double[] tribonacci(double[] s, int n) {
+        double[] list = new double[n];
+        for (int i = 0; i < s.length; i++) {
+            if (i < list.length) {
+                list[i] = s[i];
+            }
+        }
+        for (int i=3; i<n; i++) {
+            list[i]=list[i-1]+list[i-2]+list[i-3];
+        }
+        return list;
+    }
+
+    public static double[] xbonacci(double[] s, int n) {
+        double[] list = Arrays.copyOf(s,n);
+        for (int i=s.length; i<n; i++) {
+            for (int j=1; j<=s.length; j++) {
+                list[i]+=list[i-j];
+            }
+        }
+        return list;
     }
 
 }
