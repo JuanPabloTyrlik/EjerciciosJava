@@ -1,11 +1,7 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.Arrays;
-=======
-import java.util.Deque;
 import java.util.Stack;
->>>>>>> 4376ee5d9eaa11d8b9a548bbd301ae27560f2218
+
 
 
 class Kata {
@@ -54,10 +50,7 @@ class Kata {
                     break;
             }
         }
-        if (x==0 && y==0 && min==10) {
-            return true;
-        }
-        return false;
+        return (x==0 && y==0 && min==10);
     }
 
     public static String spinWords(String sentence) {
