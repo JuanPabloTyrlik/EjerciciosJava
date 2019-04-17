@@ -1,5 +1,11 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
+=======
+import java.util.Deque;
+import java.util.Stack;
+>>>>>>> 4376ee5d9eaa11d8b9a548bbd301ae27560f2218
 
 
 class Kata {
@@ -214,6 +220,55 @@ class Kata {
             }
         }
         return list;
+    }
+
+    public static boolean isValid(String braces) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < braces.length(); i++) {
+            switch (braces.charAt(i)) {
+                case ')':
+                    if (stack.isEmpty()) {
+                        return false;
+                    } else {
+                        if (stack.lastElement() == '(') {
+                            stack.pop();
+                        } else {
+                            stack.add(braces.charAt(i));
+                        }
+                    }
+                    break;
+                case ']':
+                    if (stack.isEmpty()) {
+                        return false;
+                    } else {
+                        if (stack.lastElement() == '[') {
+                            stack.pop();
+                        } else {
+                            stack.add(braces.charAt(i));
+                        }
+                    }
+                    break;
+                case '}':
+                    if (stack.isEmpty()) {
+                        return false;
+                    } else {
+                        if (stack.lastElement() == '{') {
+                            stack.pop();
+                        } else {
+                            stack.add(braces.charAt(i));
+                        }
+                    }
+                    break;
+                default:
+                    stack.add(braces.charAt(i));
+                    break;
+            }
+        }
+        if (stack.size() == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
