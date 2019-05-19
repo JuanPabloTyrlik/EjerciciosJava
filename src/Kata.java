@@ -1,35 +1,35 @@
+import javax.swing.text.MutableAttributeSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
-
 
 
 class Kata {
     public static String getMiddle(String word) {
         String w = "";
         if (word.length() % 2 != 0) {
-            w += word.charAt(Math.round(word.length()/2));
+            w += word.charAt(Math.round(word.length() / 2));
         } else {
-            w += word.charAt(word.length()/2-1);
-            w += word.charAt(word.length()/2);
+            w += word.charAt(word.length() / 2 - 1);
+            w += word.charAt(word.length() / 2);
         }
         return w;
     }
 
     public static int ConvertBinaryArrayToInt(Integer[] binary) {
         String str = "";
-        for (Integer i: binary) {
+        for (Integer i : binary) {
             str += i;
         }
         return Integer.parseInt(str, 2);
     }
 
     public static String disemvowel(String str) {
-        return str.replaceAll("(?i)[aeiou]","");
+        return str.replaceAll("(?i)[aeiou]", "");
     }
 
     public static boolean isValid(char[] walk) {
-        int x=0,y=0,min=0;
+        int x = 0, y = 0, min = 0;
         for (char c : walk) {
             switch (c) {
                 case 'n':
@@ -50,17 +50,17 @@ class Kata {
                     break;
             }
         }
-        return (x==0 && y==0 && min==10);
+        return (x == 0 && y == 0 && min == 10);
     }
 
     public static String spinWords(String sentence) {
         String[] words = sentence.trim().split(" ");
         sentence = "";
         for (String word : words) {
-            if (word.length()>=5) {
+            if (word.length() >= 5) {
                 word = new StringBuilder(word).reverse().toString();
             }
-            sentence += word+" ";
+            sentence += word + " ";
         }
         return sentence.trim();
     }
@@ -105,72 +105,81 @@ class Kata {
 //        }
 //        return directions;
 //    }
-    ArrayList<String> list = new ArrayList<>();
-    int counter =0;
+        ArrayList<String> list = new ArrayList<>();
+        int counter = 0;
         for (int i = 0; i < arr.length; i++) {
-        list.add(arr[i]);
-    }
-        do { counter = 0;
-        for (int i = 0; i < list.size(); ++i) {
-            switch (list.get(i)) {
-                case "NORTH":
-                    try {
-                        if (list.get(i+1) == "SOUTH") {
-                            list.remove(i+1);
-                            list.remove(i);
-                            counter++;
-                        }
-                        break;
-                    } catch (Exception e) {break;}
-                case "SOUTH":
-                    try {
-                        if (list.get(i+1) == "NORTH") {
-                            list.remove(i+1);
-                            list.remove(i);
-                            counter++;
-                        }
-                        break;
-                    } catch (Exception e) {break;}
-                case "EAST":
-                    try {
-                        if (list.get(i+1) == "WEST") {
-                            list.remove(i+1);
-                            list.remove(i);
-                            counter++;
-                        }
-                        break;
-                    } catch (Exception e) {break;}
-                case "WEST":
-                    try {
-                        if (list.get(i+1) == "EAST") {
-                            list.remove(i+1);
-                            list.remove(i);
-                            counter++;
-                        }
-                        break;
-                    } catch (Exception e) {break;}
-            }
+            list.add(arr[i]);
         }
-    } while (counter > 0);
-    String[] directions = new String[list.size()];
+        do {
+            counter = 0;
+            for (int i = 0; i < list.size(); ++i) {
+                switch (list.get(i)) {
+                    case "NORTH":
+                        try {
+                            if (list.get(i + 1) == "SOUTH") {
+                                list.remove(i + 1);
+                                list.remove(i);
+                                counter++;
+                            }
+                            break;
+                        } catch (Exception e) {
+                            break;
+                        }
+                    case "SOUTH":
+                        try {
+                            if (list.get(i + 1) == "NORTH") {
+                                list.remove(i + 1);
+                                list.remove(i);
+                                counter++;
+                            }
+                            break;
+                        } catch (Exception e) {
+                            break;
+                        }
+                    case "EAST":
+                        try {
+                            if (list.get(i + 1) == "WEST") {
+                                list.remove(i + 1);
+                                list.remove(i);
+                                counter++;
+                            }
+                            break;
+                        } catch (Exception e) {
+                            break;
+                        }
+                    case "WEST":
+                        try {
+                            if (list.get(i + 1) == "EAST") {
+                                list.remove(i + 1);
+                                list.remove(i);
+                                counter++;
+                            }
+                            break;
+                        } catch (Exception e) {
+                            break;
+                        }
+                }
+            }
+        } while (counter > 0);
+        String[] directions = new String[list.size()];
         for (int i = 0; i < list.size(); i++) {
-        directions[i] = list.get(i);
-    }
+            directions[i] = list.get(i);
+        }
         return directions;
     }
 
     public static int bouncingBall(double h, double bounce, double window) {
-        if (!(h>0 && window < h && (bounce > 0 && bounce < 1))) {
+        if (!(h > 0 && window < h && (bounce > 0 && bounce < 1))) {
             return -1;
         }
-        return calculateBounce(h,bounce,window,0);
+        return calculateBounce(h, bounce, window, 0);
     }
 
-    public static int calculateBounce (double h, double bounce, double window, int views) {
-        if (h>0 && window < h && (bounce > 0 && bounce < 1)) {
-            if (h>window) {
-                if (h*bounce > window) {
-                    views += 2+calculateBounce(h*bounce,bounce,window,views);
+    public static int calculateBounce(double h, double bounce, double window, int views) {
+        if (h > 0 && window < h && (bounce > 0 && bounce < 1)) {
+            if (h > window) {
+                if (h * bounce > window) {
+                    views += 2 + calculateBounce(h * bounce, bounce, window, views);
                 } else {
                     views += 1 + calculateBounce(h * bounce, bounce, window, views);
                 }
@@ -186,8 +195,8 @@ class Kata {
         for (int i = 0; i < s.length; i++) {
             list[i] = s[i];
         }
-        for (int i=2; i<n; i++) {
-            list[i]=list[i-1]+list[i-2];
+        for (int i = 2; i < n; i++) {
+            list[i] = list[i - 1] + list[i - 2];
         }
         return list;
     }
@@ -199,17 +208,17 @@ class Kata {
                 list[i] = s[i];
             }
         }
-        for (int i=3; i<n; i++) {
-            list[i]=list[i-1]+list[i-2]+list[i-3];
+        for (int i = 3; i < n; i++) {
+            list[i] = list[i - 1] + list[i - 2] + list[i - 3];
         }
         return list;
     }
 
     public static double[] xbonacci(double[] s, int n) {
-        double[] list = Arrays.copyOf(s,n);
-        for (int i=s.length; i<n; i++) {
-            for (int j=1; j<=s.length; j++) {
-                list[i]+=list[i-j];
+        double[] list = Arrays.copyOf(s, n);
+        for (int i = s.length; i < n; i++) {
+            for (int j = 1; j <= s.length; j++) {
+                list[i] += list[i - j];
             }
         }
         return list;
@@ -262,6 +271,45 @@ class Kata {
         } else {
             return false;
         }
+    }
+
+    public static int[][] buildMatrix(int[] array) {
+        int a = array.length / 2;
+        int[][] matrix = new int[a][a];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j] = array[i + j];
+            }
+        }
+        return matrix;
+    }
+
+    public static int[][] subMatrix(int[][] matrix, int a, int b) {
+        int[] array = new int[matrix.length*2];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (i != a && j != b) {
+                    array[i+j] = matrix[i][j];
+                }
+            }
+        }
+        return buildMatrix(array);
+    }
+
+    public static int detM (int[][] matrix) {
+        return matrix[0][0] * detM(subMatrix(matrix,0,0));
+    }
+
+    public static int det(int[][] matrix) {
+        int det = 0;
+        if (matrix.length == 1 && matrix[0].length == 1) {
+            return matrix[0][0];
+        } else {
+            for (int j = 0; j < matrix.length; j++) {
+                det = (int) Math.pow(-1, j) * matrix[0][0] * detM(subMatrix(matrix, 0, j));
+            }
+        }
+        return det;
     }
 
 }
