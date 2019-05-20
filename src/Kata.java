@@ -1,4 +1,4 @@
-import javax.swing.text.MutableAttributeSet;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
@@ -266,11 +266,7 @@ class Kata {
                     break;
             }
         }
-        if (stack.size() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return stack.size() == 0;
     }
 
     public static int[][] buildMatrix(int[] array) {
@@ -312,4 +308,11 @@ class Kata {
         return det;
     }
 
+    public static double findUniq(double arr[]) {
+        int i=0;
+        while (arr[i]==arr[i+1] && i+1<arr.length){
+            i++;
+        }
+        return arr[0];
+    }
 }

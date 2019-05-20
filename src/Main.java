@@ -1,9 +1,6 @@
-import java.sql.Array;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
+import DoubleDispatch.*;
+
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -65,8 +62,6 @@ public class Main {
         System.out.println(cb.simpleSymbols("+b+c+d+"));
         System.out.println(cb.simpleSymbols("+b+c+d"));
 
-        System.out.println(Vowels.getCount("hola todo bien?"));
-
         System.out.println(Kata.getMiddle("testing"));
         System.out.println(Kata.getMiddle("abcd"));
 
@@ -126,6 +121,16 @@ public class Main {
         System.out.println(mat.det(matrixs[3])); //-20
         System.out.println(mat.det(matrixs[4])); //-20
         System.out.println(mat.det(matrixs[5])); //-20
+
+        Trabajador artesano = new Artesano();
+        Trabajador zapatero = new Zapatero();
+        Material cuero = new Cuero();
+        Material goma = new Goma();
+
+        artesano.trabajar(cuero);
+        artesano.trabajar(goma);
+        zapatero.trabajar(cuero);
+        zapatero.trabajar(goma);
 
 
     }
