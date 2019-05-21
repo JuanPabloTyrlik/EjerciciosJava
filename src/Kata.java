@@ -1,7 +1,5 @@
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 
 class Kata {
@@ -315,4 +313,27 @@ class Kata {
         }
         return arr[0];
     }
+
+    public static String updateLight(String current) {
+        String[] states = {"green","yellow","red"};
+        for (int i = 0; i < states.length; i++) {
+            if (current.equals(states[i])) {
+                if (i+1 < states.length) {return states[i+1];}
+                else {return states[0];}
+            }
+        }
+        return "";
+    }
+
+    public static int unluckyDays(int year) {
+        int unluckyDays =0;
+        Calendar date = Calendar.getInstance();
+        for (int i = 0; i < 12; i++) {
+            date.set(year, i, 13);
+            if (date.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) unluckyDays++;
+        }
+        return unluckyDays;
+    }
+
+
 }

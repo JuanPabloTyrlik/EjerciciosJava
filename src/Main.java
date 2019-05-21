@@ -86,7 +86,7 @@ public class Main {
         System.out.println(Kata.isValid("([{}])"));
         System.out.println(Kata.isValid("[({})](]"));
         System.out.println(Kata.isValid(")}()"));
-*/
+
         int[][][] matrixs = {
                                 {{1, 2, 3}, {4, 5, 6}, {7,8,9}},
                                 {{1,2},{3,4}},
@@ -114,7 +114,6 @@ public class Main {
 
         Matrix mat = new Matrix();
 
-
         System.out.println(mat.det(matrixs[0])); //0
         System.out.println(mat.det(matrixs[1])); //-2
         System.out.println(mat.det(matrixs[2])); //1
@@ -131,7 +130,9 @@ public class Main {
         artesano.trabajar(goma);
         zapatero.trabajar(cuero);
         zapatero.trabajar(goma);
+*/
 
+        System.out.println(Kata.unluckyDays(2019));
 
     }
 }
